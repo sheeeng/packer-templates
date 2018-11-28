@@ -9,7 +9,7 @@
     "name": "{{ user `name` }}",
     "packer_images_output_dir": "{{ user `packer_images_output_dir` }}",
     "cpus": "2",
-    "memory": "4096",
+    "memory": "2048",
     "ssh_winrm_host_port": "5985",
     "virtio_win_iso": "{{ user `virtio_win_iso` }}",
     "iso_url": "{{ user `iso_url` }}",
@@ -64,7 +64,7 @@
     {
       "type": "powershell",
       "pause_before": "1m",
-      "script": "scripts/win-common/openssh.ps1"
+      "script": "scripts/win-common/install-openssh.ps1"
     },
     {
       "type": "windows-restart",
