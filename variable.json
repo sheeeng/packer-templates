@@ -1,0 +1,8 @@
+{
+    "name": "windows-10-enterprise",
+    "packer_images_output_dir": "output",
+    "virtio_win_iso": "iso/virtio-win-0.1.160.iso",
+    "iso_url": "iso/en_windows_10_enterprise_version_1703_updated_july_2017_x64_dvd_10925376.iso",
+    "iso_checksum": "57e336f03768a297e0f28a87f467af83f4b06e3cca98bcf5ab5232c1f0d3da52",
+    "iso_checksum_type": "sha256"
+}
