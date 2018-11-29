@@ -139,34 +139,88 @@
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c powershell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine>
-                    <Description>Set Execution Policy 64 Bit</Description>
+                    <Description>Set Execution Policy for PowerShell 64-bit to Remote Signed.</Description>
                     <Order>1</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c powershell -File a:\fixnetwork.ps1</CommandLine>
-                    <Description>Fix public network</Description>
+                    <CommandLine>C:\Windows\SysWOW64\cmd.exe /c powershell -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force"</CommandLine>
+                    <Description>Set Execution Policy for PowerShell 32-bit to Remote Signed.</Description>
                     <Order>2</Order>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
+
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>cmd.exe /c powershell -File a:\fixnetwork.ps1</CommandLine>
+                    <Description>Fix public network.</Description>
+                    <Order>11</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c powershell -Command "Invoke-Expression ((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'))"</CommandLine>
-                    <Description>Enable WinRM</Description>
-                    <Order>3</Order>
+                    <Description>Enable WinRM service.</Description>
+                    <Order>12</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c reg add "HKLM\System\CurrentControlSet\Control\Network\NewNetworkWindowOff"</CommandLine>
-                    <Description>Network prompt</Description>
-                    <Order>4</Order>
+                    <Description>Turn off network prompt.</Description>
+                    <Order>13</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c wmic useraccount where "name='vagrant'" set PasswordExpires=FALSE"</CommandLine>
-                    <Description>Disable password expiration for vagrant user</Description>
-                    <Order>5</Order>
+                    <Description>Disable password expiration for vagrant user.</Description>
+                    <Order>14</Order>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
+
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v HideFileExt /t REG_DWORD /d 0 /f</CommandLine>
+                    <Order>71</Order>
+                    <Description>Show file extensions in Explorer.</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKCU\Console /v QuickEdit /t REG_DWORD /d 1 /f</CommandLine>
+                    <Order>72</Order>
+                    <Description>Enable QuickEdit mode in Command Prompt.</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v Start_ShowRun /t REG_DWORD /d 1 /f</CommandLine>
+                    <Order>73</Order>
+                    <Description>Show Run command in Start Menu.</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ /v StartMenuAdminTools /t REG_DWORD /d 1 /f</CommandLine>
+                    <Order>74</Order>
+                    <Description>Show Administrative Tools in Start Menu.</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateFileSizePercent /t REG_DWORD /d 0 /f</CommandLine>
+                    <Order>75</Order>
+                    <Description>Set zero percent hibernation file size.</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SYSTEM\CurrentControlSet\Control\Power\ /v HibernateEnabled /t REG_DWORD /d 0 /f</CommandLine>
+                    <Order>76</Order>
+                    <Description>Disable hibernation mode.</Description>
+                </SynchronousCommand>
+
+                <!-- START OF WINDOWS UPDATES SECTION -->
+                <!--
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>cmd.exe /c a:\microsoft-updates.bat</CommandLine>
+                    <Order>91</Order>
+                    <Description>Enable Microsoft Updates.</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\win-updates.ps1</CommandLine>
+                    <Description>Install Windows Updates.</Description>
+                    <Order>92</Order>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
+                -->
+                <!-- END OF WINDOWS UPDATES SECTION -->
             </FirstLogonCommands>
             <ShowWindowsLive>false</ShowWindowsLive>
         </component>
@@ -176,8 +230,8 @@
             <OEMInformation>
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
-            <!-- Rename computer here. -->
-            <ComputerName>win10</ComputerName>
+            <!-- Rename computer name by modifying the content of the below XML element. -->
+            <ComputerName>Vinduer10</ComputerName>
             <TimeZone>UTC</TimeZone>
             <RegisteredOwner/>
         </component>
