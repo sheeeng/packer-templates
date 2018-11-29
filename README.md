@@ -255,7 +255,7 @@ export NAME="windows-10-enterprise-x64-eval"
 export WINDOWS_VERSION="10"
 export VIRTIO_WIN_ISO="/var/tmp/virtio-win.iso"
 export ISO_CHECKSUM="a37718a13ecff4e8497e8feef50e4c91348e97c6bfe93474e364c9d03ad381a2"
-export ISO_URL="https://software-download.microsoft.com/download/pr/17763.1.180914-1434.rs5_release_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso"
+export USO_URL="https://software-download.microsoft.com/download/pr/17763.1.180914-1434.rs5_release_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso"
 export PACKER_IMAGES_OUTPUT_DIR="/var/tmp/"
 packer build -only="qemu" windows.json
 
