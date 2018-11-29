@@ -206,6 +206,17 @@
                     <Description>Disable hibernation mode.</Description>
                 </SynchronousCommand>
 
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default\ /v AnonymousUid /t REG_DWORD /d 0 /f</CommandLine>
+                    <Order>77</Order>
+                    <Description>Add AnonymousUid to Registry for NFS.</Description>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>%SystemRoot%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default\ /v AnonymousGid /t REG_DWORD /d 0 /f</CommandLine>
+                    <Order>78</Order>
+                    <Description>Add AnonymousGid to Registry for NFS.</Description>
+                </SynchronousCommand>
+
                 <!-- START OF WINDOWS UPDATES SECTION -->
                 <!--
                 <SynchronousCommand wcm:action="add">

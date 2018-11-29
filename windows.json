@@ -64,6 +64,11 @@
     {
       "type": "powershell",
       "pause_before": "1m",
+      "script": "scripts/win-common/enable-nfs-client.ps1"
+    },
+    {
+      "type": "powershell",
+      "pause_before": "1m",
       "script": "scripts/win-common/install-openssh.ps1"
     },
     {
