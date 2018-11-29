@@ -231,7 +231,7 @@
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
             <!-- Rename computer name. -->
-            <ComputerName>Vinduer10</ComputerName>
+            <ComputerName>Windows10</ComputerName>
             <TimeZone>UTC</TimeZone>
             <RegisteredOwner/>
         </component>
