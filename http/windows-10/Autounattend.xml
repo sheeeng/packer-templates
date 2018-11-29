@@ -230,7 +230,7 @@
             <OEMInformation>
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
-            <!-- Rename computer name by modifying the content of the below XML element. -->
+            <!-- Rename computer name. -->
             <ComputerName>Vinduer10</ComputerName>
             <TimeZone>UTC</TimeZone>
             <RegisteredOwner/>
